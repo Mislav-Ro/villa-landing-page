@@ -13,5 +13,10 @@
     "react-dom": "18.2.0",
     "react-calendar": "^4.8.0",
     "node-ical": "^0.15.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31"
   }
 }
