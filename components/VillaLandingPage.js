@@ -19,9 +19,7 @@ function ContactForm() {
     }))
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    
+  const handleSubmit = async () => {
     if (!formData.title.trim() || !formData.message.trim()) {
       setSubmitStatus({ type: 'error', message: 'Please fill in both title and message.' })
       return
@@ -69,8 +67,8 @@ function ContactForm() {
         </div>
       )}
 
-      <div>
-        <div className="mb-4">
+      <div className="space-y-4">
+        <div>
           <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2">
             Subject
           </label>
@@ -86,7 +84,7 @@ function ContactForm() {
           />
         </div>
 
-        <div className="mb-6">
+        <div>
           <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
             Message
           </label>
