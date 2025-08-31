@@ -60,8 +60,8 @@ export default function VillaLandingPage() {
         <h2 className="text-xl font-semibold text-gray-700 mb-2">Contact</h2>
         <p className="text-gray-600">
           For inquiries, please email us at
-          <a href="mailto:info@villaserenity.com" className="text-blue-500 hover:underline ml-1">
-            info@villaserenity.com
+          <a href="mailto:mislavrogulj@gmail.com" className="text-blue-500 hover:underline ml-1">
+            mislavrogulj@gmail.com
           </a>
         </p>
       </footer>
