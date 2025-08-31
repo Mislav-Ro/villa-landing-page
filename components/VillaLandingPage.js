@@ -59,7 +59,7 @@ export default function VillaLandingPage() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center p-6">
       <header className="w-full max-w-3xl text-center mb-8">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Welcome to Villa Serenity</h1>
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">Welcome to Villa Esquel</h1>
         <p className="text-lg text-gray-600">
           A luxurious retreat with breathtaking views and modern amenities.
         </p>
