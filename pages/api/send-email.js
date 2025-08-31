@@ -10,28 +10,15 @@ export default async function handler(req, res) {
   }
 
   try {
-    // For now, we'll use a simple email service like Formspree or EmailJS
-    // This is a basic implementation that logs the email and returns success
-    
     console.log('=== New Contact Form Submission ===')
     console.log('Subject:', title)
     console.log('Message:', message)
     console.log('Timestamp:', new Date().toISOString())
     
-    // Here you would integrate with an email service like:
-    // - Formspree
-    // - EmailJS
-    // - SendGrid
-    // - Nodemailer with SMTP
-    // - Resend
-    
-    // For demonstration, we'll simulate a successful email send
-    await new Promise(resolve => setTimeout(resolve, 1000)) // Simulate API delay
-    
-    // In a real implementation, you would send the email here
-    // Example with a hypothetical email service:
+    // Option 1: Use Formspree (recommended - easy setup)
+    // Go to https://formspree.io, create account, and replace YOUR_FORM_ID below
     /*
-    const emailResult = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+    const formspreeResponse = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -39,13 +26,53 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         subject: title,
         message: message,
-        _replyto: 'visitor@example.com' // This would come from a form field
+        email: 'villa-website@example.com' // You can add an email field to the form
       })
     })
     
-    if (!emailResult.ok) {
-      throw new Error('Failed to send email')
+    if (!formspreeResponse.ok) {
+      throw new Error('Failed to send via Formspree')
     }
+    */
+    
+    // Option 2: Use EmailJS (frontend-focused but can work from backend)
+    // Set up at https://www.emailjs.com/
+    
+    // Option 3: Direct SMTP with Nodemailer (requires email credentials)
+    // This would need additional dependencies and email server setup
+    
+    // For now, let's try a simple approach using a webhook service
+    // You can replace this with any email service you prefer
+    
+    // Simulate email sending for development
+    const emailData = {
+      to: 'mislavrogulj@gmail.com',
+      subject: `Villa Esquel Inquiry: ${title}`,
+      body: `
+        New inquiry from Villa Esquel website:
+        
+        Subject: ${title}
+        
+        Message:
+        ${message}
+        
+        Sent at: ${new Date().toISOString()}
+      `
+    }
+    
+    // Log the email that would be sent
+    console.log('Email would be sent:', emailData)
+    
+    // For testing: you can use a service like webhook.site to see if data is being sent
+    // Replace with your actual webhook URL for testing
+    /*
+    await fetch('https://webhook.site/YOUR-UNIQUE-URL', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(emailData)
+    })
     */
     
     res.status(200).json({ 
