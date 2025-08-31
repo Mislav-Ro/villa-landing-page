@@ -2,7 +2,7 @@ import ical from 'node-ical'
 
 export default async function handler(req, res) {
   try {
-    const ICAL_URL = 'https://example.com/your-calendar.ics' // TODO: replace with your iCal URL
+    const ICAL_URL = 'https://ical.booking.com/v1/export?t=af103c92-e046-4e15-88de-d565f430045f' // TODO: replace with your iCal URL
     const data = await ical.async.fromURL(ICAL_URL)
 
     const booked = []
