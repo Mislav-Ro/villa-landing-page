@@ -21,9 +21,7 @@ export default function ImageCarousel() {
           'villa5.jpg',
           'villa6.jpg',
           'villa7.jpg',
-          'villa8.jpg',
-          'villa9.jpg',
-          'villa10.jpg'
+          'villa8.jpg'
           // Add more image filenames as needed
         ]
 
