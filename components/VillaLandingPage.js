@@ -6,7 +6,8 @@ import 'react-calendar/dist/Calendar.css'
 function ContactForm() {
   const [formData, setFormData] = useState({
     title: '',
-    message: ''
+    message: '',
+    contact: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
@@ -20,8 +21,23 @@ function ContactForm() {
   }
 
   const handleSubmit = async () => {
-    if (!formData.title.trim() || !formData.message.trim()) {
-      setSubmitStatus({ type: 'error', message: 'Please fill in both title and message.' })
+    if (!formData.title.trim() || !formData.message.trim() || !formData.contact.trim()) {
+      setSubmitStatus({ 
+        type: 'error', 
+        message: 'Please fill in all fields: subject, contact information, and message.' 
+      })
+      return
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const phoneRegex = /^(\+\d{1,3}[- ]?)?\d{10}/ // Basic phone validation
+    
+    if (!emailRegex.test(formData.contact) && !phoneRegex.test(formData.contact.replace(/[- ()]/g, ''))) {
+      setSubmitStatus({ 
+        type: 'error', 
+        message: 'Please enter a valid email address or phone number with country code.' 
+      })
       return
     }
 
@@ -41,7 +57,7 @@ function ContactForm() {
 
       if (response.ok) {
         setSubmitStatus({ type: 'success', message: 'Your message has been sent successfully!' })
-        setFormData({ title: '', message: '' })
+        setFormData({ title: '', message: '', contact: '' })
       } else {
         setSubmitStatus({ type: 'error', message: result.error || 'Failed to send message. Please try again.' })
       }
@@ -70,7 +86,7 @@ function ContactForm() {
       <div className="space-y-4">
         <div>
           <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2">
-            Subject
+            Subject *
           </label>
           <input
             type="text"
@@ -85,8 +101,27 @@ function ContactForm() {
         </div>
 
         <div>
+          <label htmlFor="contact" className="block text-sm font-medium text-gray-700 mb-2">
+            Your Email or Phone Number *
+          </label>
+          <input
+            type="text"
+            id="contact"
+            name="contact"
+            value={formData.contact}
+            onChange={handleInputChange}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="your.email@example.com or +1 234 567 8900"
+            disabled={isSubmitting}
+          />
+          <p className="mt-1 text-xs text-gray-500">
+            We need this to respond to your inquiry. Include country code for phone numbers.
+          </p>
+        </div>
+
+        <div>
           <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-            Message
+            Message *
           </label>
           <textarea
             id="message"
