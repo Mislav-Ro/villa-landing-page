@@ -87,7 +87,7 @@ export default function ImageCarousel() {
 
   if (loading) {
     return (
-      <div className="w-full max-h-[400px] lg:max-h-[500px] xl:max-h-[600px] bg-gray-200 rounded-2xl flex items-center justify-center aspect-[3/2]">
+      <div className="w-full max-h-[320px] lg:max-h-[400px] xl:max-h-[480px] bg-gray-200 rounded-2xl flex items-center justify-center aspect-[3/2]">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
           <p className="text-gray-500">Loading images...</p>
@@ -98,7 +98,7 @@ export default function ImageCarousel() {
 
   if (error || images.length === 0) {
     return (
-      <div className="w-full max-h-[400px] lg:max-h-[500px] xl:max-h-[600px] bg-gray-200 rounded-2xl flex items-center justify-center aspect-[3/2]">
+      <div className="w-full max-h-[320px] lg:max-h-[400px] xl:max-h-[480px] bg-gray-200 rounded-2xl flex items-center justify-center aspect-[3/2]">
         <div className="text-center">
           <div className="text-gray-400 mb-4">
             <svg className="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 20 20">
@@ -127,7 +127,7 @@ export default function ImageCarousel() {
               <img 
                 src={image} 
                 alt={`Villa Esquel ${index + 1}`}
-                className="w-full aspect-[3/2] object-cover max-h-[400px] lg:max-h-[500px] xl:max-h-[600px]"
+                className="w-full aspect-[3/2] object-cover max-h-[320px] lg:max-h-[400px] xl:max-h-[480px]"
                 style={{ height: 'auto', maxWidth: '100%' }}
                 loading={index === 0 ? 'eager' : 'lazy'}
               />
