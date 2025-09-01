@@ -3,15 +3,16 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const { title, message } = req.body
+  const { title, message, contact } = req.body
 
-  if (!title || !message) {
-    return res.status(400).json({ error: 'Title and message are required' })
+  if (!title || !message || !contact) {
+    return res.status(400).json({ error: 'Title, message, and contact information are required' })
   }
 
   try {
     console.log('=== New Contact Form Submission ===')
     console.log('Subject:', title)
+    console.log('Contact:', contact)
     console.log('Message:', message)
     console.log('Timestamp:', new Date().toISOString())
     
@@ -22,7 +23,8 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         subject: `Villa Esquel: ${title}`,
-        message: message,
+        message: `Contact Information: ${contact}\n\nMessage:\n${message}`,
+        contact: contact, // Include contact as separate field for Formspree
         _replyto: 'noreply@villa-esquel.com',
         _subject: `Villa Esquel Inquiry: ${title}`
       })
