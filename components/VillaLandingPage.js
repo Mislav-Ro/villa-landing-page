@@ -111,7 +111,7 @@ function ContactForm() {
             value={formData.contact}
             onChange={handleInputChange}
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            placeholder="your.email@example.com or +1 234 567 8900"
+            placeholder="your.email@example.com or +49 234 567 8900"
             disabled={isSubmitting}
           />
           <p className="mt-1 text-xs text-gray-500">
@@ -153,6 +153,72 @@ function ContactForm() {
         <a href="mailto:mislavrogulj@gmail.com" className="text-blue-500 hover:underline">
           mislavrogulj@gmail.com
         </a>
+      </div>
+    </div>
+  )
+}
+
+// Google Maps Component
+function GoogleMapsLocation() {
+  return (
+    <div className="bg-white p-6 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-semibold mb-4 text-gray-700">Location</h2>
+      <p className="text-gray-600 mb-4">
+        Villa Esquel is perfectly located to offer you both tranquility and easy access to local attractions.
+      </p>
+      
+      <div className="relative">
+        {/* Google Maps Embed */}
+        <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-md">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2649.225208017255!2d15.96955897569116!3d43.49868666241141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133517cbecd84377%3A0xc187617897e15b21!2sVilla%20Esquel!5e1!3m2!1shr!2shr!4v1756727389108!5m2!1shr!2shr"
+            width="100%"
+            height="300"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="rounded-lg"
+            title="Villa Esquel Location"
+          ></iframe>
+        </div>
+      </div>
+
+      {/* Location Details and Links */}
+      <div className="mt-4 space-y-2">
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-sm font-medium text-gray-700">Get Directions</p>
+            <p className="text-xs text-gray-500">Open in your preferred map app</p>
+          </div>
+          <div className="flex gap-2">
+            <a 
+              href="https://share.google/ORSTSYzB1usNgAnwW"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700 transition-colors"
+            >
+              Google Maps
+            </a>
+            <a 
+              href="https://maps.apple.com/?q=Villa+Esquel&ll=-42.91111,-71.31283"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-2 bg-gray-600 text-white text-sm rounded-md hover:bg-gray-700 transition-colors"
+            >
+              Apple Maps
+            </a>
+          </div>
+        </div>
+        
+        <div className="pt-2 border-t border-gray-200">
+          <p className="text-xs text-gray-500">
+            📍 Esquel, Chubut Province, Argentina
+          </p>
+          <p className="text-xs text-gray-500 mt-1">
+            Close to Los Alerces National Park and La Hoya Ski Resort
+          </p>
+        </div>
       </div>
     </div>
   )
@@ -227,7 +293,7 @@ export default function VillaLandingPage() {
       </section>
 
       <section className="max-w-6xl w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Availability Calendar */}
           <div className="text-center">
             <h2 className="text-2xl font-semibold mb-4 text-gray-700">Availability Calendar</h2>
@@ -262,6 +328,11 @@ export default function VillaLandingPage() {
 
           {/* Contact Form */}
           <ContactForm />
+        </div>
+
+        {/* Google Maps Location Section */}
+        <div className="mb-8">
+          <GoogleMapsLocation />
         </div>
       </section>
 
