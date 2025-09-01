@@ -123,12 +123,11 @@ export default function ImageCarousel() {
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {images.map((image, index) => (
-            <div key={index} className="w-full flex-shrink-0">
+            <div key={index} className="w-full flex-shrink-0 flex justify-center">
               <img 
                 src={image} 
                 alt={`Villa Esquel ${index + 1}`}
-                className="w-full aspect-[3/2] object-cover max-h-[320px] lg:max-h-[400px] xl:max-h-[480px]"
-                style={{ height: 'auto', maxWidth: '100%' }}
+                className="aspect-[3/2] object-cover max-h-[320px] lg:max-h-[400px] xl:max-h-[480px] w-auto max-w-full"
                 loading={index === 0 ? 'eager' : 'lazy'}
               />
             </div>
