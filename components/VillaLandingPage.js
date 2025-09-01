@@ -213,11 +213,7 @@ function GoogleMapsLocation() {
         
         <div className="pt-2 border-t border-gray-200">
           <p className="text-xs text-gray-500">
-            📍 Esquel, Chubut Province, Argentina
-          </p>
-          <p className="text-xs text-gray-500 mt-1">
-            Close to Los Alerces National Park and La Hoya Ski Resort
-          </p>
+            📍 Villa Esquel, Uvala Stivasnica 100e, Croatia
         </div>
       </div>
     </div>
