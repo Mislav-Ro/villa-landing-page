@@ -21,7 +21,9 @@ export default function ImageCarousel() {
           'villa5.jpg',
           'villa6.jpg',
           'villa7.jpg',
-          'villa8.jpg'
+          'villa8.jpg',
+          'villa9.jpg',
+          'villa10.jpg'
           // Add more image filenames as needed
         ]
 
@@ -85,7 +87,7 @@ export default function ImageCarousel() {
 
   if (loading) {
     return (
-      <div className="w-full h-96 bg-gray-200 rounded-2xl flex items-center justify-center">
+      <div className="w-full h-96 bg-gray-200 rounded-2xl flex items-center justify-center aspect-[3/2]">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
           <p className="text-gray-500">Loading images...</p>
@@ -96,7 +98,7 @@ export default function ImageCarousel() {
 
   if (error || images.length === 0) {
     return (
-      <div className="w-full h-96 bg-gray-200 rounded-2xl flex items-center justify-center">
+      <div className="w-full h-96 bg-gray-200 rounded-2xl flex items-center justify-center aspect-[3/2]">
         <div className="text-center">
           <div className="text-gray-400 mb-4">
             <svg className="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 20 20">
@@ -125,7 +127,7 @@ export default function ImageCarousel() {
               <img 
                 src={image} 
                 alt={`Villa Esquel ${index + 1}`}
-                className="w-full h-96 lg:h-[500px] object-cover"
+                className="w-full aspect-[3/2] object-cover"
                 loading={index === 0 ? 'eager' : 'lazy'}
               />
             </div>
